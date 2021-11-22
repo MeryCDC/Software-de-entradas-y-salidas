@@ -15,7 +15,7 @@
                 <div class="add-items d-flex mb-0">
                    {{--  @can('minutas.index.store') --}}
                     <button type="button" class="btn btn-primary btn-icon-text" data-toggle="modal"
-                        data-target="#minuta">
+                        data-target="#ingreso">
                         <i class="ti-plus btn-icon-prepend"></i> Crear ingreso
                     </button>
                  {{--    @endcan --}}
@@ -26,7 +26,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="minutas" class="table dt-responsive">
+                        <table id="tabla_ingresos" class="table dt-responsive">
                             <thead>
                                 <tr>
                                     <th style="width:15px">ID</th>
@@ -60,7 +60,7 @@
 </div>
 
 <!-- modal para agregar nueva minuta -->
-<div class="modal fade" id="minuta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="ingreso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -131,7 +131,7 @@
 
 <script>
 $(function() {
-    $('#minutas').DataTable({
+    $('#tabla_ingresos').DataTable({
         "order": [
             [0, "desc"]
         ],
@@ -144,11 +144,11 @@ $(function() {
 
 /* Modal para agregar un nuevo ingreso */
 $(function() {
-    $('#minuta').on('show.bs.modal', function(event) {
+    $('#ingreso').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)
         var minutaid = button.data('id')
         var modal = $(this)
-        modal.find('.modal-title').text('Agregar nueva minuta')
+        modal.find('.modal-title').text('Crear nuevo ingreso')
     })
 });
 </script>
