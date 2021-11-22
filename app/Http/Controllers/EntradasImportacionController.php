@@ -14,7 +14,7 @@ class EntradasImportacionController extends Controller
      */
     public function index()
     {
-        //
+        return view('ingresos.index');
     }
 
     /**
