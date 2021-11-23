@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Entradas_Importacion extends Model
 {
     use HasFactory;
+
+    
 }

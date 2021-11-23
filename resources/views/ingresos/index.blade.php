@@ -36,20 +36,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach($minutas as $minuta) --}}
+                                @foreach($ingresos as $ingreso) 
                                 <tr>
-                                    <td> 1{{-- {{ $minuta->id}} --}}</td>
-                                    <td>12/12/2021{{-- {{ $minuta->Fecha_Creacion->locale('es')->isoFormat('dddd D \d\e MMMM')}}
-                                        {{ $minuta->Fecha_Creacion->locale('es')->isoFormat('Y H:m')}} --}}
+                                    <td>{{ $ingreso->id}}</td>
+                                    <td>{{ $ingreso->created_at->locale('es')->isoFormat('dddd D \d\e MMMM')}}
+                                        {{ $ingreso->created_at->locale('es')->isoFormat('Y H:m')}} 
                                     </td>
-                                    <td>Yo Mero{{-- {{ $minuta->name}} --}}</td>
+                                    <td>{{ $ingreso->name}} </td>
                                     <td>
                                         {{-- @can('minutas.mostar.edit') --}}
                                             <a href="{{-- {{ url('/minutas/editar/basica/'.$minuta->id)}} --}}" class="btn btn-outline-primary">Ver guias</a>
                                        {{--  @endcan --}}
                                     </td>
                                 </tr>
-                                {{-- @endforeach --}}
+                                @endforeach 
                             </tbody>
                         </table>
                     </div>
