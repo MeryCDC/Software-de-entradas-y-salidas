@@ -15,6 +15,11 @@ class SalidasImportacionController extends Controller
     public function index()
     {
         //
+        $salidas = Salidas_Importacion::join('users' , 'salidas__importacions.user_id', '=', 'users.id')
+        ->select('salidas__importacions.id', 'salidas__importacions.created_at' ,'users.name')
+        ->orderBy('salidas__importacions.id', 'desc')
+        ->get();
+        return view('salidas.index', compact('salidas'));
     }
 
     /**
@@ -35,7 +40,11 @@ class SalidasImportacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos= new Salidas_Importacion();
+        $datos->user_id = $request->user_id;
+        $datos->save(); 
+
+        return redirect('salidas');
     }
 
     /**
