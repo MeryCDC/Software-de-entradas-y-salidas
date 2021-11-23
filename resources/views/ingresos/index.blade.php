@@ -45,7 +45,7 @@
                                     <td>Yo Mero{{-- {{ $minuta->name}} --}}</td>
                                     <td>
                                         {{-- @can('minutas.mostar.edit') --}}
-                                            <a href="{{-- {{ url('/minutas/editar/basica/'.$minuta->id)}} --}}" class="btn btn-outline-primary">Ver guias </a>
+                                            <a href="{{-- {{ url('/minutas/editar/basica/'.$minuta->id)}} --}}" class="btn btn-outline-primary">Ver guias</a>
                                        {{--  @endcan --}}
                                     </td>
                                 </tr>
@@ -72,9 +72,17 @@
         <div class="modal-body">
           <p>¿Esta seguro de crear un nuevo ingreso?</p>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Guardar</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <div class="modal-footer"> 
+            <form action="{{ url('/ingresos') }}" class="forms-sample" method="post">
+                @csrf
+                <div class="form-group">
+                    <input type="hidden" id="user_id" name="user_id" value=" {{ Auth::user()->id }}">
+                </div>
+                <button type="submit" class="btn btn-primary me-2"><i class="mdi mdi-plus"></i> Crear ingreso</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </form>
+          {{-- <button type="button" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button> --}}
         </div>
       </div>
     </div>

@@ -19,7 +19,13 @@ class EntradasImportacionController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $fecha_actual = date('Y-m-d H:i:s');
+        //Obtengo los datos generales de la minuta y el nombre del creador de la minuta
+        $datos= new Entradas_Bodega;
+        $datos->Fecha = $fecha_actual;
+        $datos->user_id = $request->user_id;
+        /* $datos->save(); */
+        return response()->json($datos);
     }
 
     public function show(Entradas_Importacion $entradas_Importacion)
