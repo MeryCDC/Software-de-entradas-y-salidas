@@ -9,8 +9,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-{{--     <link href="{{ asset('icons/mdi/css/materialdesignicons.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('icons/ti-icons/css/themify-icons.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('icons/mdi/css/materialdesignicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('icons/ti-icons/css/themify-icons.css') }}" rel="stylesheet"> 
     <!-- CDN -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.2/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -38,14 +38,14 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                        {{--  @can('minutas.index') --}}
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ url('/minutas' )}}">Inicio</a>
-                        </li>
+                        {{-- <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('/ingresos' )}}">Inicio</a>
+                        </li> --}}
                         {{-- @endcan --}}
 
                         {{-- @can('minutas.index') --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/minutas/reuniones') }}">Ingresos</a>
+                            <a class="nav-link" href="{{ url('/ingresos') }}">Ingresos</a>
                         </li>
                         {{-- @endcan --}}
                     </ul>

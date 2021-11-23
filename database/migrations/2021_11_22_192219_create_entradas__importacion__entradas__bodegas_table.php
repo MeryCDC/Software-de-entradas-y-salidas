@@ -15,11 +15,6 @@ class CreateEntradasImportacionEntradasBodegasTable extends Migration
     {
         Schema::create('entradas__importacion__entradas__bodegas', function (Blueprint $table) {
             $table->id();
-
-            //Ejemplo de declaracion de llaves foraneas dentro de la migración
-            $table->unsignedInteger('minutas_id'); //Declaras el campo, el campo debe ser MombreTabla_id
-            $table->foreign('minutas_id')->references('id')->on('minutas'); //referencia a la tabla
-
             $table->timestamps();
         });
     }

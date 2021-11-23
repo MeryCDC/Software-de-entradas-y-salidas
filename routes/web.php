@@ -14,13 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+ */
+
+Auth::routes();
+
+Route::get('/home', [EntradasImportacionController::class, 'index'])->middleware('auth')->name('home');
+
+Route::group(['middleware' => 'auth'], function () 
+{
+    Route::get('/', [EntradasImportacionController::class , 'index'])->name('home');
+}); 
+
+
+/*|-------------------------------------------------------------------------- */
 
 Route::resource('/ingresos' , EntradasImportacionController::class );
 
