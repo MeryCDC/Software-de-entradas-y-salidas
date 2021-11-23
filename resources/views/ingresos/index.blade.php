@@ -29,7 +29,7 @@
                         <table id="tabla_ingresos" class="table dt-responsive table-sm">
                             <thead>
                                 <tr>
-                                    <th style="width:15px">ID</th>
+                                    <th>ID</th>
                                     <th>Fecha de creación</th>
                                     <th>Creador</th>
                                     <th>Acciones</th>
@@ -45,7 +45,7 @@
                                     <td>{{ $ingreso->name}} </td>
                                     <td>
                                         {{-- @can('minutas.mostar.edit') --}}
-                                            <a href=" {{ url('ingresos/'.$ingreso->id.'/guias')}}" class="btn btn-outline-primary">Ver guias</a>
+                                            <a href=" {{ url('ingresos/'.$ingreso->id.'/guias')}}" class="btn btn-outline-primary btn-sm">Ver guias</a>
                                        {{--  @endcan --}}
                                     </td>
                                 </tr>
@@ -100,7 +100,7 @@ $(function() {
         "order": [
             [0, "desc"]
         ],
-        "pageLength": 20,
+        "pageLength": 50,
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
         }
