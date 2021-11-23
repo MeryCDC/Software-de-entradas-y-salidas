@@ -14,13 +14,17 @@ class CreateEntradasImportacionEntradasBodegasTable extends Migration
     public function up()
     {
         Schema::create('entradas__importacion__entradas__bodegas', function (Blueprint $table) {
+            $table->engine="InnoDB"; //Permite el borrado en cascada
+            
             $table->id();
-
-            //Ejemplo de declaracion de llaves foraneas dentro de la migración
-            $table->unsignedBigInteger('minutas_id'); //Declaras el campo, el campp debe ser MombreTabla_id
-            $table->foreign('minutas_id')->references('id')->on('minutas'); //referencia a la tabla
-
             $table->timestamps();
+
+            $table->integer('entradas__importacions_id')->unsigned(); //FK            
+            $table->integer('entradas__bodegas_id')->unsigned(); //FK 
+            
+            $table->foreign('entradas__importacions_id')->references('id')->on('entradas__importacions'); //Constraint
+            $table->foreign('entradas__bodegas_id')->references('id')->on('entradas__bodegas'); //Constraint
+            
         });
     }
 
