@@ -25,34 +25,46 @@
 
         <div class="card-body col-lg-12 d-flex flex-column">
             <div class="d-flex justify-content-between align-items-center">
-            <form action="" class="form-inline needs-validation" novalidate>
-                <div class="form-group row">
+                <form action="{{ url('/notas')}}"" class="form-inline needs-validation" method="POST" novalidate>
+                    @csrf
+                    <div class="form-group row">
                     <div class="col">
                       <label>Tracking/Perteneciente</label>
                         <input type="text" class="form-control">
                     </div>
                     <div class="col">
-                      <label>Peso</label>
-                        <input type="text" class="form-control">
+                      <label>Peso *</label>
+                      <input type="number" step="any" name="peso" id="peso" class="form-control" required/>
+                      <div class="invalid-feedback">
+                        Ingrese el peso
+                      </div>
                     </div>
                     <div class="col">
-                        <label>Alto</label>
-                          <input type="text" class="form-control">
+                        <label>Alto *</label>
+                        <input type="number" step="any" name="alto" id="alto" class="form-control" required/>
+                        <div class="invalid-feedback">
+                            Ingrese el alto
+                          </div>
                       </div>
                       <div class="col">
-                        <label>Largo</label>
-                          <input type="text" class="form-control">
+                        <label>Largo *</label>
+                        <input type="number" step="any" name="largo" id="largo" class="form-control" required/>
+                        <div class="invalid-feedback">
+                            Ingrese el largo
+                          </div>
                       </div>
                       <div class="col">
-                        <label>Ancho</label>
-                          <input type="text" class="form-control">
+                        <label>Ancho *</label>
+                        <input type="number" step="any" name="ancho" id="ancho" class="form-control" required/>
+                        <div class="invalid-feedback">
+                            Ingrese el ancho
+                          </div>
                       </div>
                       <div class="col">
                         <button class="btn btn-primary" type="submit">Ingresar</button>
                       </div>
-                      
                   </div>
-            </form>
+                </form>
             </div>
         </div>
 
@@ -195,5 +207,25 @@ $(function() {
         modal.find('.modal-title').text('Crear nuevo ingreso')
     })
 });
+
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+
 </script>
 @endsection
