@@ -45,7 +45,7 @@
                                     <td>{{ $ingreso->name}} </td>
                                     <td>
                                         {{-- @can('minutas.mostar.edit') --}}
-                                            <a href="{{-- {{ url('/minutas/editar/basica/'.$minuta->id)}} --}}" class="btn btn-outline-primary">Ver guias</a>
+                                            <a href=" {{ url('ingresos/'.$ingreso->id.'/guias')}}" class="btn btn-outline-primary">Ver guias</a>
                                        {{--  @endcan --}}
                                     </td>
                                 </tr>
