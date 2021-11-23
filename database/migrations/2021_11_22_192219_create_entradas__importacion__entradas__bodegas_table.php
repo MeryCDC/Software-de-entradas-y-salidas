@@ -17,7 +17,7 @@ class CreateEntradasImportacionEntradasBodegasTable extends Migration
             $table->id();
 
             //Ejemplo de declaracion de llaves foraneas dentro de la migración
-            $table->unsignedBigInteger('minutas_id'); //Declaras el campo, el campp debe ser MombreTabla_id
+            $table->unsignedInteger('minutas_id'); //Declaras el campo, el campo debe ser MombreTabla_id
             $table->foreign('minutas_id')->references('id')->on('minutas'); //referencia a la tabla
 
             $table->timestamps();

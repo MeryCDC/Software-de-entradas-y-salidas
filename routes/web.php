@@ -23,3 +23,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/ingresos' , EntradasImportacionController::class );
+
+Route::get('/ingresos/guias/{id}', [EntradasImportacionController::class, 'show'])->name('ingresos.guias');

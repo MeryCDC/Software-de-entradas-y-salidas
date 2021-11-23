@@ -26,7 +26,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="tabla_ingresos" class="table dt-responsive">
+                        <table id="tabla_ingresos" class="table dt-responsive table-sm">
                             <thead>
                                 <tr>
                                     <th style="width:15px">ID</th>
@@ -62,66 +62,23 @@
 <!-- modal para agregar nueva minuta -->
 <div class="modal fade" id="ingreso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nueva Observacion</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ url('/minutas') }}" class="forms-sample" method="post">
-                    @csrf
-                    <div class="form-group">
-                        <label for="Nombre">{{ __('Objetivo:') }}</label>
-                        <input type="text" class="form-control @error('Objetivo') is-invalid @enderror" id="Objetivo"
-                            name="Objetivo" placeholder="Ingrese el objetivo de la minuta"
-                            value="{{ old('Objetivo') }}">
-                        @error('Objetivo')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="Lugar_Reunion">Lugar de reunión:</label>
-                        <input type="text" class="form-control  @error('Lugar_Reunion') is-invalid @enderror"
-                            id="Lugar_Reunion" name="Lugar_Reunion" placeholder="Ingrese el lugar de reunión"
-                            value="{{ old('Lugar_Reunion') }}">
-                        @error('Lugar_Reunion')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-
-                    </div>
-                    <div class="form-group">
-                        <label for="Fecha_Prox_Reuniun">Fecha de proxima reunión:</label>
-                        <input type="date" class="form-control @error('Fecha_Prox_Reuniun') is-invalid @enderror"
-                            id="Fecha_Prox_Reuniun" name="Fecha_Prox_Reuniun" value="{{ old('Fecha_Prox_Reuniun') }}">
-                        @error('Fecha_Prox_Reuniun')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <input type="hidden" class="form-control" id="user_id" name="user_id"
-                            value=" {{-- {{ Auth::user()->id }} --}}">
-                        <input type="hidden" class="form-control" id="Estatus" name="Estatus" value="0">
-                        <input type="hidden" class="form-control" id="Fecha_Creacion" name="Fecha_Creacion"
-                            value="{{ date('Y-m-d H:i') }}">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary me-2">
-                        <i class="mdi mdi-plus"></i> Agregar Minuta
-                    </button>
-                </form>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+          <p>¿Esta seguro de crear un nuevo ingreso?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 <!-- Final modal para agregar nueva minuta -->
 @endsection
 
