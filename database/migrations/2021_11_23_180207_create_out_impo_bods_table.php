@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEntradasImportacionsTable extends Migration
+class CreateOutImpoBodsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateEntradasImportacionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('entradas__importacions', function (Blueprint $table) {
+        Schema::create('out_impo_bods', function (Blueprint $table) {
             $table->engine="InnoDB"; //Permite el borrado en cascada
-
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('user_id');
 
-            $table->foreign('user_id')->references('id')->on('users'); //Constraint
+            $table->unsignedBigInteger('out_imp_id');
+            $table->unsignedBigInteger('out_bod_id');
+            
+            $table->foreign('out_imp_id')->references('id')->on('salidas__importacions'); //Constraint
+            $table->foreign('out_bod_id')->references('id')->on('salidas__bodegas'); //Constraint
 
         });
     }
@@ -32,6 +34,6 @@ class CreateEntradasImportacionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entradas__importacions');
+        Schema::dropIfExists('out_impo_bods');
     }
 }

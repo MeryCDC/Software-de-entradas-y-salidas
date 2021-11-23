@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Entradas_Importacion_Entradas_Bodega;
+use App\Models\IntImpoBod;
 use Illuminate\Http\Request;
 
-class EntradasImportacionEntradasBodegaController extends Controller
+class IntImpoBodController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class EntradasImportacionEntradasBodegaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Entradas_Importacion_Entradas_Bodega  $entradas_Importacion_Entradas_Bodega
+     * @param  \App\Models\IntImpoBod  $intImpoBod
      * @return \Illuminate\Http\Response
      */
-    public function show(Entradas_Importacion_Entradas_Bodega $entradas_Importacion_Entradas_Bodega)
+    public function show(IntImpoBod $intImpoBod)
     {
         //
     }
@@ -52,10 +52,10 @@ class EntradasImportacionEntradasBodegaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Entradas_Importacion_Entradas_Bodega  $entradas_Importacion_Entradas_Bodega
+     * @param  \App\Models\IntImpoBod  $intImpoBod
      * @return \Illuminate\Http\Response
      */
-    public function edit(Entradas_Importacion_Entradas_Bodega $entradas_Importacion_Entradas_Bodega)
+    public function edit(IntImpoBod $intImpoBod)
     {
         //
     }
@@ -64,10 +64,10 @@ class EntradasImportacionEntradasBodegaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Entradas_Importacion_Entradas_Bodega  $entradas_Importacion_Entradas_Bodega
+     * @param  \App\Models\IntImpoBod  $intImpoBod
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Entradas_Importacion_Entradas_Bodega $entradas_Importacion_Entradas_Bodega)
+    public function update(Request $request, IntImpoBod $intImpoBod)
     {
         //
     }
@@ -75,10 +75,10 @@ class EntradasImportacionEntradasBodegaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Entradas_Importacion_Entradas_Bodega  $entradas_Importacion_Entradas_Bodega
+     * @param  \App\Models\IntImpoBod  $intImpoBod
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Entradas_Importacion_Entradas_Bodega $entradas_Importacion_Entradas_Bodega)
+    public function destroy(IntImpoBod $intImpoBod)
     {
         //
     }

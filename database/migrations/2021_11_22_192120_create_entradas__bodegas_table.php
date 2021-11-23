@@ -25,11 +25,9 @@ class CreateEntradasBodegasTable extends Migration
             $table->double('peso_volumetrico', 4, 2)->storedAs('(alto * ancho * largo) / 166')->nullable();
             $table->double('volumen', 3, 2)->storedAs('alto * ancho * largo')->nullable();
             $table->timestamps();
-            
-            
-            $table->string("id_cdc");  
-            $table->string("id_cdc")->storedAs('concat(tgp, " " , id)')->nullable();
-            $table->integer('user_id')->unsigned(); //FK 
+
+            $table->string("id_cdc");
+            $table->unsignedBigInteger('user_id');
 
             $table->foreign('user_id')->references('id')->on('users'); //Constraint
         });

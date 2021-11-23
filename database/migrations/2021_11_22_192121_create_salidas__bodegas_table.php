@@ -26,7 +26,7 @@ class CreateSalidasBodegasTable extends Migration
             $table->timestamps();
 
             $table->string("id_cdc");
-            $table->integer('user_id')->unsigned(); //FK            
+            $table->unsignedBigInteger('user_id');         
             
             $table->foreign('user_id')->references('id')->on('users'); //Constraint
         });

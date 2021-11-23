@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Salidas_Importacion_Salidas_Bodega;
+use App\Models\OutImpoBod;
 use Illuminate\Http\Request;
 
-class SalidasImportacionSalidasBodegaController extends Controller
+class OutImpoBodController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class SalidasImportacionSalidasBodegaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Salidas_Importacion_Salidas_Bodega  $salidas_Importacion_Salidas_Bodega
+     * @param  \App\Models\OutImpoBod  $outImpoBod
      * @return \Illuminate\Http\Response
      */
-    public function show(Salidas_Importacion_Salidas_Bodega $salidas_Importacion_Salidas_Bodega)
+    public function show(OutImpoBod $outImpoBod)
     {
         //
     }
@@ -52,10 +52,10 @@ class SalidasImportacionSalidasBodegaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Salidas_Importacion_Salidas_Bodega  $salidas_Importacion_Salidas_Bodega
+     * @param  \App\Models\OutImpoBod  $outImpoBod
      * @return \Illuminate\Http\Response
      */
-    public function edit(Salidas_Importacion_Salidas_Bodega $salidas_Importacion_Salidas_Bodega)
+    public function edit(OutImpoBod $outImpoBod)
     {
         //
     }
@@ -64,10 +64,10 @@ class SalidasImportacionSalidasBodegaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Salidas_Importacion_Salidas_Bodega  $salidas_Importacion_Salidas_Bodega
+     * @param  \App\Models\OutImpoBod  $outImpoBod
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Salidas_Importacion_Salidas_Bodega $salidas_Importacion_Salidas_Bodega)
+    public function update(Request $request, OutImpoBod $outImpoBod)
     {
         //
     }
@@ -75,10 +75,10 @@ class SalidasImportacionSalidasBodegaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Salidas_Importacion_Salidas_Bodega  $salidas_Importacion_Salidas_Bodega
+     * @param  \App\Models\OutImpoBod  $outImpoBod
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Salidas_Importacion_Salidas_Bodega $salidas_Importacion_Salidas_Bodega)
+    public function destroy(OutImpoBod $outImpoBod)
     {
         //
     }

@@ -18,7 +18,7 @@ class CreateSalidasImportacionsTable extends Migration
 
             $table->id();
             $table->timestamps();
-            $table->integer('user_id')->unsigned(); //FK
+            $table->unsignedBigInteger('user_id');
 
             $table->foreign('user_id')->references('id')->on('users'); //Constraint
         });
