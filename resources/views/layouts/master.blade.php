@@ -48,6 +48,11 @@
                             <a class="nav-link" href="{{ url('/ingresos') }}">Ingresos</a>
                         </li>
                         {{-- @endcan --}}
+                        {{-- @can('minutas.index') --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/salidas') }}">Salidas</a>
+                        </li>
+                        {{-- @endcan --}}
                     </ul>
 
                     <!-- Right Side Of Navbar -->
