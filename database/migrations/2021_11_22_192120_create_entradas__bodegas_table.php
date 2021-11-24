@@ -17,16 +17,16 @@ class CreateEntradasBodegasTable extends Migration
             $table->engine="InnoDB"; //Permite el borrado en cascada
 
             $table->id();
-            $table->string("tgp");  
-            $table->double('peso', 8, 2);
-            $table->double('largo', 3, 2);
-            $table->double('ancho', 3, 2);
-            $table->double('alto', 3, 2);
-            $table->double('peso_volumetrico', 4, 2)->storedAs('(alto * ancho * largo) / 166')->nullable();
-            $table->double('volumen', 3, 2)->storedAs('alto * ancho * largo')->nullable();
+            $table->string("tgp")->nullable();
+            $table->double('peso');
+            $table->double('largo');
+            $table->double('ancho');
+            $table->double('alto');
+            $table->double('peso_volumetrico')->storedAs('(alto * ancho * largo) / 166')->nullable();
+            $table->double('volumen')->storedAs('alto * ancho * largo')->nullable();
             $table->timestamps();
 
-            $table->string("id_cdc");
+            $table->string("id_cdc")->nullable();
             $table->unsignedBigInteger('user_id');
 
             $table->foreign('user_id')->references('id')->on('users'); //Constraint
