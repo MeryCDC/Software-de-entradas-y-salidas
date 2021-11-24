@@ -31,6 +31,6 @@ Route::group(['middleware' => 'auth'], function ()
 
 Route::resource('/ingresos' , EntradasImportacionController::class );
 
-Route::get('/ingresos/guias/{id}', [EntradasImportacionController::class, 'show'])->name('ingresos.guias');
+Route::get('/ingresos/{id}/guias', [EntradasImportacionController::class, 'show'])->name('ingresos.guias');
 
 Route::resource('/salidas' , SalidasImportacionController::class );
