@@ -25,12 +25,14 @@
 
         <div class="card-body col-lg-12 d-flex flex-column">
             <div class="d-flex justify-content-between align-items-center">
-                <form action="{{ url('/notas')}}"" class="form-inline needs-validation" method="POST" novalidate>
+                <form action="{{ url('/entradas')}}"" class="form-inline needs-validation" id="formGuias" method="POST" novalidate>
                     @csrf
                     <div class="form-group row">
                     <div class="col">
                       <label>Tracking/Perteneciente</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="tgp" id="tgp" autofocus>
+                        <input type="hidden" name="id_importacion" id="id_importacion" value="{{ $id }}">
+                        <input type="hidden" id="user_id" name="user_id" value=" {{ Auth::user()->id }}">
                     </div>
                     <div class="col">
                       <label>Peso *</label>
@@ -67,16 +69,16 @@
                 </form>
             </div>
         </div>
-
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="tabla_ingresos" class="table dt-responsive">
+                        <table id="tabla_guias" class="table dt-responsive table-sm">
                             <thead>
                                 <tr>
                                     <th style="width:15px">ID</th>
                                     <th>T/G/P</th>
+                                    <th>ID CDC</th>
                                     <th>Alto</th>
                                     <th>Largo</th>
                                     <th>Ancho</th>
@@ -87,25 +89,27 @@
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                {{-- @foreach($minutas as $minuta) --}}
+                            <tbody id="myTable">
+                                @foreach($guiasImportaciones as $guia)
                                 <tr>
-                                    <td>1</td>
-                                    <td>PepitoLopez124547</td>
-                                    <td>52</td>
-                                    <td>4</td>
-                                    <td>6</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>Yo mero</td>
+                                    <td>{{ $guia->id}}</td>
+                                    <td>{{ $guia->tgp}}</td>
+                                    <td>{{ $guia->id_cdc}}</td>
+                                    <td>{{ $guia->alto}}</td>
+                                    <td>{{ $guia->largo}}</td>
+                                    <td>{{ $guia->ancho}}</td>
+                                    <td>{{ $guia->peso}}</td>
+                                    <td>{{ $guia->peso_volumetrico}}</td>
+                                    <td>{{ $guia->volumen}}</td>
+                                    <td>{{ $guia->name}}</td>
                                     <td>
                                         {{-- @can('minutas.mostar.edit') --}}
-                                            <a href="{{-- {{ url('/minutas/editar/basica/'.$minuta->id)}} --}}" class="btn btn-outline-primary">Ver guias </a>
+                                            <a href="{{-- {{ url('/minutas/editar/basica/'.$minuta->id)}} --}}" class="btn btn-outline-primary btn-sm">Editar</a>
                                        {{--  @endcan --}}
+                                            <a href="{{-- {{ url('/minutas/editar/basica/'.$minuta->id)}} --}}" class="btn btn-outline-success btn-sm">Label</a>
                                     </td>
                                 </tr>
-                                {{-- @endforeach --}}
+                                @endforeach 
                             </tbody>
                         </table>
                     </div>
@@ -187,7 +191,7 @@
 
 <script>
 $(function() {
-    $('#tabla_ingresos').DataTable({
+    $('#tabla_guias').DataTable({
         "order": [
             [0, "desc"]
         ],

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Entradas_Importacion;
+use App\Models\IntImpoBod;
 use Illuminate\Http\Request;
 
 class EntradasImportacionController extends Controller
@@ -25,18 +26,26 @@ class EntradasImportacionController extends Controller
 
     public function store(Request $request)
     {
-        //Obtengo los datos generales de la minuta y el nombre del creador de la minuta
+        //Creo la importacion
         $datos= new Entradas_Importacion();
         $datos->user_id = $request->user_id;
         $datos->save(); 
-
         return redirect('ingresos');
-        //return response()->json($datos);
     }
 
-    public function show(Entradas_Importacion $entradas_Importacion)
+    public function show($id)
     {
-        return view('ingresos.guias');   
+         //Obtengo todas las guias de la importacion seleccionada
+         $guiasImportaciones=IntImpoBod::join('entradas__importacions' , 'int_impo_bods.int_impo_id', '=', 'entradas__importacions.id')
+         ->join('entradas__bodegas' , 'int_impo_bods.int_bod_id', '=', 'entradas__bodegas.id')
+         ->join('users' , 'entradas__bodegas.user_id', '=', 'users.id')
+         ->select('entradas__bodegas.id' , 'entradas__bodegas.tgp' , 'entradas__bodegas.peso','entradas__bodegas.largo', 
+         'entradas__bodegas.ancho', 'entradas__bodegas.alto', 'entradas__bodegas.peso_volumetrico', 'entradas__bodegas.volumen', 'users.name')
+         ->where('entradas__importacions.id', '=', $id)
+         ->get();
+
+         return view('ingresos.guias', compact('guiasImportaciones' , 'id'));  
+         //return response()->json($guiasImportaciones); 
     }
 
     public function edit(Entradas_Importacion $entradas_Importacion)

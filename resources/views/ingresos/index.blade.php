@@ -81,8 +81,6 @@
                 <button type="submit" class="btn btn-primary me-2"><i class="mdi mdi-plus"></i> Crear ingreso</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
             </form>
-          {{-- <button type="button" class="btn btn-primary">Guardar</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button> --}}
         </div>
       </div>
     </div>
