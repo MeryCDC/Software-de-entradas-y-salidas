@@ -39,7 +39,7 @@ class EntradasImportacionController extends Controller
          $guiasImportaciones=IntImpoBod::join('entradas__importacions' , 'int_impo_bods.int_impo_id', '=', 'entradas__importacions.id')
          ->join('entradas__bodegas' , 'int_impo_bods.int_bod_id', '=', 'entradas__bodegas.id')
          ->join('users' , 'entradas__bodegas.user_id', '=', 'users.id')
-         ->select('entradas__bodegas.id' , 'entradas__bodegas.tgp' , 'entradas__bodegas.peso','entradas__bodegas.largo', 
+         ->select('entradas__bodegas.id' , 'entradas__bodegas.tgp' , 'entradas__bodegas.peso','entradas__bodegas.largo', 'entradas__bodegas.id_cdc',
          'entradas__bodegas.ancho', 'entradas__bodegas.alto', 'entradas__bodegas.peso_volumetrico', 'entradas__bodegas.volumen', 'users.name')
          ->where('entradas__importacions.id', '=', $id)
          ->get();
