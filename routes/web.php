@@ -31,6 +31,10 @@ Route::group(['middleware' => 'auth'], function ()
 
 Route::resource('/ingresos' , EntradasImportacionController::class );
 
+Route::resource('/entradas' , EntradasBodegaController::class );
+
 Route::get('/ingresos/{id}/guias', [EntradasImportacionController::class, 'show'])->name('ingresos.guias');
+
+Route::get('/etiqueta/{id}', [BarCodeController::class, 'index']);
 
 Route::resource('/salidas' , SalidasImportacionController::class );
