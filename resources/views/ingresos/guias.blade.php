@@ -104,10 +104,10 @@
                                     <td>{{ $guia->name}}</td>
                                     <td>
                                         {{-- @can('minutas.mostar.edit') --}}
-                                            <a href="{{-- {{ url('/minutas/editar/basica/'.$minuta->id)}} --}}" class="btn btn-warning btn-sm">Editar</a>
+                                            <a data-href="{{ url('/entradas/'.$guia->id.'/edit') }}" id="btnEditar" class="editForm btn btn-warning btn-sm">Editar</a>
                                        {{--  @endcan --}}
                                         @if(empty($guia->tgp))
-                                            <a href="{{ url('/etiqueta/'.$guia->id)}}" class="btn btn-info btn-sm">Label</a>
+                                            <a href="{{ url('/etiqueta/'.$guia->id)}}" target="_blank" class="btn btn-info btn-sm">Label</a>
                                         @endif
                                     </td>
                                 </tr>
@@ -192,15 +192,21 @@
 <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
 
 <script>
+$(document).ready(function() {  
+  $(".editForm").click(function() {
+    var caracteristicas = "height=850,width=800,scrollTo,resizable=1,scrollbars=1,location=0,left=800";
+    var url = $(this).data("href");
+    nueva = window.open(url, "popup", caracteristicas);
+    return true;
+  });
+});
+
+
 $(function() {
     $('#tabla_guias').DataTable({
-        "order": [
-            [0, "desc"]
-        ],
+        "order": [[0, "desc"]],
         "pageLength": 20,
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-        }
+        "language": {"url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"}
     });
 });
 

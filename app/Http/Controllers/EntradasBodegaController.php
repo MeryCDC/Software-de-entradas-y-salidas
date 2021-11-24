@@ -62,14 +62,18 @@ class EntradasBodegaController extends Controller
         //
     }
 
-    public function edit(Entradas_Bodega $entradas_Bodega)
+    public function edit($id)
     {
-        //
+        $ingreso = Entradas_Bodega::find($id);
+        return view('entradas.editar', compact('ingreso'));
+        //return view('ingresos.index', compact('ingresos'));
     }
 
-    public function update(Request $request, Entradas_Bodega $entradas_Bodega)
+    public function update(Request $request, $id)
     {
-        //
+        $ingreso = request()->except('_token' , '_method');
+        Entradas_Bodega::where('id' , '=' , $id)->update($ingreso);
+        return redirect()->route('entradas.edit' , $id)->with('editEntrada', 'Cambios guardados correctamente'); 
     }
 
 
