@@ -104,9 +104,11 @@
                                     <td>{{ $guia->name}}</td>
                                     <td>
                                         {{-- @can('minutas.mostar.edit') --}}
-                                            <a href="{{-- {{ url('/minutas/editar/basica/'.$minuta->id)}} --}}" class="btn btn-outline-primary btn-sm">Editar</a>
+                                            <a href="{{-- {{ url('/minutas/editar/basica/'.$minuta->id)}} --}}" class="btn btn-warning btn-sm">Editar</a>
                                        {{--  @endcan --}}
-                                            <a href="{{-- {{ url('/minutas/editar/basica/'.$minuta->id)}} --}}" class="btn btn-outline-success btn-sm">Label</a>
+                                        @if(empty($guia->tgp))
+                                            <a href="{{ url('/etiqueta/'.$guia->id)}}" class="btn btn-info btn-sm">Label</a>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach 
