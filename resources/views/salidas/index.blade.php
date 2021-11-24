@@ -26,7 +26,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="tabla_ingresos" class="table dt-responsive table-sm">
+                        <table id="tabla_salidas" class="table dt-responsive table-sm">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -45,7 +45,7 @@
                                     <td>{{ $salida->name}} </td>
                                     <td>
                                         {{-- @can('minutas.mostar.edit') --}}
-                                            <a href=" {{ url('ingresos/'.$ingreso->id.'/guias')}}" class="btn btn-outline-primary btn-sm">Ver guias</a>
+                                            <a href=" {{ url('ingresos/'.$salida->id.'/guias')}}" class="btn btn-outline-primary btn-sm">Ver guias</a>
                                        {{--  @endcan --}}
                                     </td>
                                 </tr>
